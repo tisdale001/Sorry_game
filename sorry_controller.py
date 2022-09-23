@@ -7091,8 +7091,8 @@ class sorryController():
                 # must avoid the index with the original piece that is moving
                 for i in range(from_sq, from_sq + slide_length):
                     if i != avoid_index:
-                        if self.model.main_board[i].is_occupied():
-                            if self.model.main_board[i].get_color() == color:
+                        if self.model.main_board[i%60].is_occupied():
+                            if self.model.main_board[i%60].get_color() == color:
                                 return False
                 return True
             
