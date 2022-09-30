@@ -891,9 +891,8 @@ class sorryView():
                 else:
                     # piece passes from 0 to 59, then completes move
                     piece = from_list[from_sq].remove_piece()
-                    for i in range(from_sq):
-                        self.animate_piece(i, i - 1, piece)
-                    self.animate_piece(0, 59, piece)
+                    for i in range(from_sq, -1, -1):
+                        self.animate_piece(i, (i + 60 - 1)%60, piece)
                     for i in range(59 - to_sq):
                         self.animate_piece(59 - i, 59 - i - 1, piece)
                     if to_list[to_sq].is_occupied():
@@ -910,7 +909,7 @@ class sorryView():
                     self.animate_piece(58 - i, 58 - i - 1, piece)
                 if to_list[to_sq].is_occupied():
                     piece2 = to_list[to_sq].remove_piece()
-                    piece2.undraw
+                    piece2.undraw()
                 to_list[to_sq].add_piece(piece)
             elif from_list is self.green_safety:
                 # move to 200, then 13, then complete move
@@ -922,7 +921,7 @@ class sorryView():
                     self.animate_piece(13 - i, 13 - i - 1, piece)
                 if to_list[to_sq].is_occupied():
                     piece2 = to_list[to_sq].remove_piece()
-                    piece2.undraw
+                    piece2.undraw()
                 to_list[to_sq].add_piece(piece)
             elif from_list is self.red_safety:
                 # move to 300, then 28, then complete move
@@ -934,7 +933,7 @@ class sorryView():
                     self.animate_piece(28 - i, 28 - i - 1, piece)
                 if to_list[to_sq].is_occupied():
                     piece2 = to_list[to_sq].remove_piece()
-                    piece2.undraw
+                    piece2.undraw()
                 to_list[to_sq].add_piece(piece)
             elif from_list is self.blue_safety:
                 # move to 400, then 43, then complete move
@@ -946,7 +945,7 @@ class sorryView():
                     self.animate_piece(43 - i, 43 - i - 1, piece)
                 if to_list[to_sq].is_occupied():
                     piece2 = to_list[to_sq].remove_piece()
-                    piece2.undraw
+                    piece2.undraw()
                 to_list[to_sq].add_piece(piece)
 
     def move_piece_from_start(self, start_list, to_sq):

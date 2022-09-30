@@ -2810,6 +2810,9 @@ class sorryController():
                                                     second_legal_move = False
                                             elif self.model.yellow_safety[to_block2 - 100].is_home():
                                                 second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
+                                                second_legal_move = True
                                             elif self.model.yellow_safety[to_block2 - 100].is_occupied():
                                                 second_legal_move = False
                                             elif not self.model.yellow_safety[to_block2 - 100].is_occupied():
@@ -2827,6 +2830,9 @@ class sorryController():
                                                 else:
                                                     second_legal_move = False
                                             elif self.model.yellow_safety[to_block2 - 100].is_home():
+                                                second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
                                                 second_legal_move = True
                                             elif self.model.yellow_safety[to_block2 - 100].is_occupied():
                                                 second_legal_move = False
@@ -3075,6 +3081,9 @@ class sorryController():
                                                     second_legal_move = False
                                             elif self.model.green_safety[to_block2 - 200].is_home():
                                                 second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
+                                                second_legal_move = True
                                             elif self.model.green_safety[to_block2 - 200].is_occupied():
                                                 second_legal_move = False
                                             elif not self.model.green_safety[to_block2 - 200].is_occupied():
@@ -3092,6 +3101,9 @@ class sorryController():
                                                 else:
                                                     second_legal_move = False
                                             elif self.model.green_safety[to_block2 - 200].is_home():
+                                                second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
                                                 second_legal_move = True
                                             elif self.model.green_safety[to_block2 - 200].is_occupied():
                                                 second_legal_move = False
@@ -3340,6 +3352,9 @@ class sorryController():
                                                     second_legal_move = False
                                             elif self.model.red_safety[to_block2 - 300].is_home():
                                                 second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
+                                                second_legal_move = True
                                             elif self.model.red_safety[to_block2 - 300].is_occupied():
                                                 second_legal_move = False
                                             elif not self.model.red_safety[to_block2 - 300].is_occupied():
@@ -3357,6 +3372,9 @@ class sorryController():
                                                 else:
                                                     second_legal_move = False
                                             elif self.model.red_safety[to_block2 - 300].is_home():
+                                                second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
                                                 second_legal_move = True
                                             elif self.model.red_safety[to_block2 - 300].is_occupied():
                                                 second_legal_move = False
@@ -3605,6 +3623,9 @@ class sorryController():
                                                     second_legal_move = False
                                             elif self.model.blue_safety[to_block2 - 400].is_home():
                                                 second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
+                                                second_legal_move = True
                                             elif self.model.blue_safety[to_block2 - 400].is_occupied():
                                                 second_legal_move = False
                                             elif not self.model.blue_safety[to_block2 - 400].is_occupied():
@@ -3622,6 +3643,9 @@ class sorryController():
                                                 else:
                                                     second_legal_move = False
                                             elif self.model.blue_safety[to_block2 - 400].is_home():
+                                                second_legal_move = True
+                                            elif to_block2 == from_block1:
+                                                # piece 2 is moving to space where piece 1 is vacating: legal move
                                                 second_legal_move = True
                                             elif self.model.blue_safety[to_block2 - 400].is_occupied():
                                                 second_legal_move = False
@@ -5732,14 +5756,14 @@ class sorryController():
                         self.model.move_piece_from_start(self.model.yellow_start, 0)
                         self.view.move_piece_from_start(self.view.yellow_start, 0)
                         self.display_all_starts()
-                        ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                        #print('{}: move_man_out_strategy'.format(color.capitalize()))
                         return True
                 else:
                     # start spot is empty
                     self.model.move_piece_from_start(self.model.yellow_start, 0)
                     self.view.move_piece_from_start(self.view.yellow_start, 0)
                     self.display_all_starts()
-                    ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                    #print('{}: move_man_out_strategy'.format(color.capitalize()))
                     return True
         elif color == "green":
             if self.model.green_start:
@@ -5749,14 +5773,14 @@ class sorryController():
                         self.model.move_piece_from_start(self.model.green_start, 15)
                         self.view.move_piece_from_start(self.view.green_start, 15)
                         self.display_all_starts()
-                        ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                        #print('{}: move_man_out_strategy'.format(color.capitalize()))
                         return True
                 else:
                     # start spot is empty
                     self.model.move_piece_from_start(self.model.green_start, 15)
                     self.view.move_piece_from_start(self.view.green_start, 15)
                     self.display_all_starts()
-                    ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                    #print('{}: move_man_out_strategy'.format(color.capitalize()))
                     return True
         elif color == "red":
             if self.model.red_start:
@@ -5766,14 +5790,14 @@ class sorryController():
                         self.model.move_piece_from_start(self.model.red_start, 30)
                         self.view.move_piece_from_start(self.view.red_start, 30)
                         self.display_all_starts()
-                        ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                        #print('{}: move_man_out_strategy'.format(color.capitalize()))
                         return True
                 else:
                     # start spot is empty
                     self.model.move_piece_from_start(self.model.red_start, 30)
                     self.view.move_piece_from_start(self.view.red_start, 30)
                     self.display_all_starts()
-                    ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                    #print('{}: move_man_out_strategy'.format(color.capitalize()))
                     return True
         elif color == "blue":
             if self.model.blue_start:
@@ -5783,14 +5807,14 @@ class sorryController():
                         self.model.move_piece_from_start(self.model.blue_start, 45)
                         self.view.move_piece_from_start(self.view.blue_start, 45)
                         self.display_all_starts()
-                        ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                        #print('{}: move_man_out_strategy'.format(color.capitalize()))
                         return True
                 else:
                     # start spot is empty
                     self.model.move_piece_from_start(self.model.blue_start, 45)
                     self.view.move_piece_from_start(self.view.blue_start, 45)
                     self.display_all_starts()
-                    ##print('{}: move_man_out_strategy'.format(color.capitalize()))
+                    #print('{}: move_man_out_strategy'.format(color.capitalize()))
                     return True
         return False
 
@@ -5807,7 +5831,7 @@ class sorryController():
                         self.model.move_piece(self.model.yellow_safety, i, self.model.yellow_safety, 5)
                         self.view.move_piece(self.view.yellow_safety, i, self.view.yellow_safety, 5)
                         self.check_win(color)
-                        ##print('{}: move_home_strategy'.format(color.capitalize()))
+                        #print('{}: move_home_strategy'.format(color.capitalize()))
                         return True
             # check main_board (6 spaces max)
             for i in range(58, 58 - 7, -1):
@@ -5820,7 +5844,7 @@ class sorryController():
                                 self.model.move_piece(self.model.main_board, i, self.model.yellow_safety, to_sq)
                                 self.view.move_piece(self.view.main_board, i, self.view.yellow_safety, to_sq)
                                 self.check_win(color)
-                                ##print('{}: move_home_strategy'.format(color.capitalize()))
+                                #print('{}: move_home_strategy'.format(color.capitalize()))
                                 return True
         elif color == "green":
             # check safety_zone
@@ -5830,7 +5854,7 @@ class sorryController():
                         self.model.move_piece(self.model.green_safety, i, self.model.green_safety, 5)
                         self.view.move_piece(self.view.green_safety, i, self.view.green_safety, 5)
                         self.check_win(color)
-                        ##print('{}: move_home_strategy'.format(color.capitalize()))
+                        #print('{}: move_home_strategy'.format(color.capitalize()))
                         return True
             # check main_board (6 spaces max)
             for i in range(13, 13 - 7, -1):
@@ -5843,7 +5867,7 @@ class sorryController():
                                 self.model.move_piece(self.model.main_board, i, self.model.green_safety, to_sq)
                                 self.view.move_piece(self.view.main_board, i, self.view.green_safety, to_sq)
                                 self.check_win(color)
-                                ##print('{}: move_home_strategy'.format(color.capitalize()))
+                                #print('{}: move_home_strategy'.format(color.capitalize()))
                                 return True
         elif color == "red":
             # check safety_zone
@@ -5853,7 +5877,7 @@ class sorryController():
                         self.model.move_piece(self.model.red_safety, i, self.model.red_safety, 5)
                         self.view.move_piece(self.view.red_safety, i, self.view.red_safety, 5)
                         self.check_win(color)
-                        ##print('{}: move_home_strategy'.format(color.capitalize()))
+                        #print('{}: move_home_strategy'.format(color.capitalize()))
                         return True
             # check main_board (6 spaces max)
             for i in range(28, 28 - 7, -1):
@@ -5866,7 +5890,7 @@ class sorryController():
                                 self.model.move_piece(self.model.main_board, i, self.model.red_safety, to_sq)
                                 self.view.move_piece(self.view.main_board, i, self.view.red_safety, to_sq)
                                 self.check_win(color)
-                                ##print('{}: move_home_strategy'.format(color.capitalize()))
+                                #print('{}: move_home_strategy'.format(color.capitalize()))
                                 return True
         elif color == "blue":
             # check safety_zone
@@ -6360,27 +6384,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 50:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 42:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 35:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 27:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 20:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 12:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
             # don't need to check rest of main_board
@@ -6390,27 +6414,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 50:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 42:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 35:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 27:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
             # check rest of main_board
@@ -6419,27 +6443,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 50:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 42:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 35:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 27:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
         elif color == "red":
@@ -6448,27 +6472,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 20:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 12:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 50:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 42:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         
@@ -6478,27 +6502,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 20:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 12:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 50:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 42:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
         elif color == "blue":
@@ -6507,27 +6531,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 35:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 27:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 20:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 12:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
             # check rest of main_board
@@ -6536,27 +6560,27 @@ class sorryController():
                     if self.model.main_board[i].get_color() == color:
                         # check if target square is beginning of slide
                         if (i + move_num) % 60 == 35:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 27:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 20:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 12:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 5:
-                            if is_safe_slide(i, 5):
+                            if is_safe_slide((i + move_num) % 60, 5):
                                 make_move(i, (i + move_num) % 60)
                                 return True
                         elif (i + move_num) % 60 == 57:
-                            if is_safe_slide(i, 4):
+                            if is_safe_slide((i + move_num) % 60, 4):
                                 make_move(i, (i + move_num) % 60)
                                 return True
         return False
@@ -7814,7 +7838,8 @@ class sorryController():
                 self.check_slide(p2_to_sq_view, color)
             self.display_all_starts()
             #print('{}: split_get_one_piece_home_strategy'.format(color.capitalize()))
-            
+            self.check_win(color)
+
         # body of method begins here
         # we don't need to check for safe_slide here: because of the order of pieces
         # the unsafe slide will never happen
@@ -8233,6 +8258,8 @@ class sorryController():
                 self.check_slide(p2_to_sq_view, color)
             self.display_all_starts()
             #print('{}: split_cannot_move_seven_strategy'.format(color.capitalize()))
+            if p2_to_sq_model == 5:
+                self.check_win(color)
         
         # body of method begins here
         # get player pieces 'blocks' in array
